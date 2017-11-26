@@ -129,7 +129,7 @@ _close_fake(struct logger *logger, int oldFd) {
 static int
 _send(struct logger *logger, char *buf, int len) {
 	int fd = logger->fd;
-	if (fd != -1)
+	if (fd == -1)
 		return 1;
 
 	if (send(fd, buf, len, 0) == -1) {
